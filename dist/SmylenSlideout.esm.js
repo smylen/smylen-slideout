@@ -8,6 +8,9 @@
 //
 //
 //
+//
+//
+//
 var script = {
   name: 'SmylenSlideout',
   props: {
@@ -180,9 +183,10 @@ var __vue_render__ = function () {
   var _c = _vm._self._c || _h;
 
   return _c('div', {
-    staticClass: "SmylenSlideout"
+    staticClass: "smylenSlideout",
+    class: _vm.showSlideout ? 'smylenSlideout--opened' : 'smylenSlideout--closed'
   }, [_vm.showSlideout ? _c('div', {
-    staticClass: "slideout-backdrop",
+    staticClass: "smylenSlideout__backdrop",
     on: {
       "click": function ($event) {
         $event.preventDefault();
@@ -190,9 +194,9 @@ var __vue_render__ = function () {
       }
     }
   }) : _vm._e(), _vm._v(" "), _vm.showSlideout ? _c('div', {
-    staticClass: "slideout"
+    staticClass: "smylenSlideout__slideout"
   }, [_c('a', {
-    staticClass: "slideout__closeBtn",
+    staticClass: "smylenSlideout__closeBtn",
     attrs: {
       "href": "#"
     },
@@ -202,7 +206,9 @@ var __vue_render__ = function () {
         return _vm.onCloseClick($event);
       }
     }
-  }, [_vm._v("Close")]), _vm._v(" "), _vm._t("default")], 2) : _vm._e()]);
+  }, [_vm._v("Close")]), _vm._v(" "), _c('div', {
+    staticClass: "smylenSlideout__mainContainer"
+  }, [_vm._t("default")], 2)]) : _vm._e()]);
 };
 
 var __vue_staticRenderFns__ = [];
@@ -210,8 +216,8 @@ var __vue_staticRenderFns__ = [];
 
 const __vue_inject_styles__ = function (inject) {
   if (!inject) return;
-  inject("data-v-f1bf6d5a_0", {
-    source: ".SmylenSlideout[data-v-f1bf6d5a]{display:block;width:400px;margin:25px auto;border:1px solid #ccc;background:#eaeaea;text-align:center;padding:25px}.SmylenSlideout p[data-v-f1bf6d5a]{margin:0 0 1em}",
+  inject("data-v-49e49c72_0", {
+    source: ".smylenSlideout__backdrop[data-v-49e49c72]{position:fixed;top:0;left:0;height:100%;width:100%;background:#000;opacity:.7;z-index:99990}.smylenSlideout__slideout[data-v-49e49c72]{position:fixed;right:0;width:50%;z-index:99999;background:#fff;top:0;height:100%;padding:20px}.smylenSlideout__closeBtn[data-v-49e49c72]{position:absolute;top:10px;right:10px}",
     map: undefined,
     media: undefined
   });
@@ -219,7 +225,7 @@ const __vue_inject_styles__ = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__ = "data-v-f1bf6d5a";
+const __vue_scope_id__ = "data-v-49e49c72";
 /* module identifier */
 
 const __vue_module_identifier__ = undefined;

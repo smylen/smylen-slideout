@@ -1,9 +1,12 @@
 <template>
-  <div class="SmylenSlideout">
-    <div class="slideout-backdrop" @click.prevent="onBackdropClick" v-if="showSlideout"></div>
-    <div class="slideout" v-if="showSlideout">
-      <a href="#" @click.prevent="onCloseClick" class="slideout__closeBtn">Close</a>
-      <slot></slot>
+  <div class="smylenSlideout" :class="showSlideout ? 'smylenSlideout--opened' : 'smylenSlideout--closed'">
+    <div class="smylenSlideout__backdrop" @click.prevent="onBackdropClick" v-if="showSlideout"></div>
+    <div class="smylenSlideout__slideout" v-if="showSlideout">
+      <a href="#" @click.prevent="onCloseClick" class="smylenSlideout__closeBtn">Close</a>
+
+      <div class="smylenSlideout__mainContainer">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -42,16 +45,29 @@ export default {
 </script>
 
 <style scoped>
-  .SmylenSlideout {
-    display: block;
-    width: 400px;
-    margin: 25px auto;
-    border: 1px solid #ccc;
-    background: #eaeaea;
-    text-align: center;
-    padding: 25px;
+  .smylenSlideout__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: .7;
+    z-index: 99990;
   }
-  .SmylenSlideout p {
-    margin: 0 0 1em;
+  .smylenSlideout__slideout {
+    position: fixed;
+    right: 0;
+    width: 50%;
+    z-index: 99999;
+    background: white;
+    top: 0;
+    height: 100%;
+    padding: 20px;
+  }
+  .smylenSlideout__closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
 </style>
