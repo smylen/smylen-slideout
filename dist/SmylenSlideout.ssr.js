@@ -23,12 +23,25 @@ var script = {
       type: Function,
       default: function _default() {},
       required: false
+    },
+    direction: {
+      type: String,
+      default: 'right',
+      required: false
     }
   },
   data: function data() {
     return {};
   },
-  computed: {},
+  computed: {
+    classMap: function classMap() {
+      return {
+        'smylenSlideout--opened': this.showSlideout,
+        'smylenSlideout--closed': !this.showSlideout,
+        'smylenSlideout--left': this.direction === 'left'
+      };
+    }
+  },
   methods: {
     onBackdropClick: function onBackdropClick() {
       this.onClose();
@@ -163,8 +176,8 @@ var __vue_render__ = function __vue_render__() {
 
   return _c('div', {
     staticClass: "smylenSlideout",
-    class: _vm.showSlideout ? 'smylenSlideout--opened' : 'smylenSlideout--closed'
-  }, [_vm._ssrNode((_vm.showSlideout ? "<div class=\"smylenSlideout__backdrop\" data-v-49e49c72></div>" : "<!---->") + " "), _vm.showSlideout ? _vm._ssrNode("<div class=\"smylenSlideout__slideout\" data-v-49e49c72>", "</div>", [_vm._ssrNode("<a href=\"#\" class=\"smylenSlideout__closeBtn\" data-v-49e49c72>Close</a> "), _vm._ssrNode("<div class=\"smylenSlideout__mainContainer\" data-v-49e49c72>", "</div>", [_vm._t("default")], 2)], 2) : _vm._e()], 2);
+    class: _vm.classMap
+  }, [_vm._ssrNode((_vm.showSlideout ? "<div class=\"smylenSlideout__backdrop\" data-v-a32e7860></div>" : "<!---->") + " "), _vm.showSlideout ? _vm._ssrNode("<div class=\"smylenSlideout__slideout\" data-v-a32e7860>", "</div>", [_vm._ssrNode("<a href=\"#\" class=\"smylenSlideout__closeBtn\" data-v-a32e7860>Close</a> "), _vm._ssrNode("<div class=\"smylenSlideout__mainContainer\" data-v-a32e7860>", "</div>", [_vm._t("default")], 2)], 2) : _vm._e()], 2);
 };
 
 var __vue_staticRenderFns__ = [];
@@ -172,8 +185,8 @@ var __vue_staticRenderFns__ = [];
 
 var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
   if (!inject) return;
-  inject("data-v-49e49c72_0", {
-    source: ".smylenSlideout__backdrop[data-v-49e49c72]{position:fixed;top:0;left:0;height:100%;width:100%;background:#000;opacity:.7;z-index:99990}.smylenSlideout__slideout[data-v-49e49c72]{position:fixed;right:0;width:50%;z-index:99999;background:#fff;top:0;height:100%;padding:20px}.smylenSlideout__closeBtn[data-v-49e49c72]{position:absolute;top:10px;right:10px}",
+  inject("data-v-a32e7860_0", {
+    source: ".smylenSlideout__backdrop[data-v-a32e7860]{position:fixed;top:0;left:0;height:100%;width:100%;background:#000;opacity:.7;z-index:99990}.smylenSlideout__slideout[data-v-a32e7860]{position:fixed;right:0;left:auto;z-index:99999;background:#fff;top:0;height:100%;padding:20px}.smylenSlideout--left .smylenSlideout__slideout[data-v-a32e7860]{left:0;right:auto}.smylenSlideout__closeBtn[data-v-a32e7860]{position:absolute;top:10px;right:10px}",
     map: undefined,
     media: undefined
   });
@@ -181,10 +194,10 @@ var __vue_inject_styles__ = function __vue_inject_styles__(inject) {
 /* scoped */
 
 
-var __vue_scope_id__ = "data-v-49e49c72";
+var __vue_scope_id__ = "data-v-a32e7860";
 /* module identifier */
 
-var __vue_module_identifier__ = "data-v-49e49c72";
+var __vue_module_identifier__ = "data-v-a32e7860";
 /* functional template */
 
 var __vue_is_functional_template__ = false;

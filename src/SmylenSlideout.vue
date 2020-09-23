@@ -1,5 +1,5 @@
 <template>
-  <div class="smylenSlideout" :class="showSlideout ? 'smylenSlideout--opened' : 'smylenSlideout--closed'">
+  <div class="smylenSlideout" :class="classMap">
     <div class="smylenSlideout__backdrop" @click.prevent="onBackdropClick" v-if="showSlideout"></div>
     <div class="smylenSlideout__slideout" v-if="showSlideout">
       <a href="#" @click.prevent="onCloseClick" class="smylenSlideout__closeBtn">Close</a>
@@ -24,6 +24,11 @@ export default {
       type: Function,
       default: () => {},
       required: false,
+    },
+    direction: {
+      type: String,
+      default: 'right',
+      required: false,
     }
   },
   data() {
@@ -31,7 +36,13 @@ export default {
     };
   },
   computed: {
-
+    classMap () {
+      return {
+        'smylenSlideout--opened': this.showSlideout,
+        'smylenSlideout--closed': !this.showSlideout,
+        'smylenSlideout--left': this.direction === 'left'
+      };
+    }
   },
   methods: {
     onBackdropClick() {
@@ -44,7 +55,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .smylenSlideout__backdrop {
     position: fixed;
     top: 0;
@@ -58,12 +69,18 @@ export default {
   .smylenSlideout__slideout {
     position: fixed;
     right: 0;
-    width: 50%;
+    left: auto;
     z-index: 99999;
     background: white;
     top: 0;
     height: 100%;
     padding: 20px;
+  }
+  .smylenSlideout--left {
+    .smylenSlideout__slideout {
+      left: 0;
+      right: auto;
+    }
   }
   .smylenSlideout__closeBtn {
     position: absolute;
