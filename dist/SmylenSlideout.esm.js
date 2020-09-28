@@ -11,12 +11,19 @@
 //
 //
 //
+//
+//
 var script = {
   name: 'SmylenSlideout',
   props: {
     showSlideout: {
       type: Boolean,
       default: false,
+      required: false
+    },
+    showClose: {
+      type: Boolean,
+      default: true,
       required: false
     },
     onClose: {
@@ -209,7 +216,7 @@ var __vue_render__ = function () {
     }
   }) : _vm._e(), _vm._v(" "), _vm.showSlideout ? _c('div', {
     staticClass: "smylenSlideout__slideout"
-  }, [_c('a', {
+  }, [_vm.showClose ? _c('a', {
     staticClass: "smylenSlideout__closeBtn",
     attrs: {
       "href": "#"
@@ -220,7 +227,7 @@ var __vue_render__ = function () {
         return _vm.onCloseClick($event);
       }
     }
-  }, [_vm._v("Close")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Close")]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "smylenSlideout__mainContainer"
   }, [_vm._t("default")], 2)]) : _vm._e()]);
 };
@@ -230,8 +237,8 @@ var __vue_staticRenderFns__ = [];
 
 const __vue_inject_styles__ = function (inject) {
   if (!inject) return;
-  inject("data-v-a32e7860_0", {
-    source: ".smylenSlideout__backdrop[data-v-a32e7860]{position:fixed;top:0;left:0;height:100%;width:100%;background:#000;opacity:.7;z-index:99990}.smylenSlideout__slideout[data-v-a32e7860]{position:fixed;right:0;left:auto;z-index:99999;background:#fff;top:0;height:100%;padding:20px}.smylenSlideout--left .smylenSlideout__slideout[data-v-a32e7860]{left:0;right:auto}.smylenSlideout__closeBtn[data-v-a32e7860]{position:absolute;top:10px;right:10px}",
+  inject("data-v-49755c9c_0", {
+    source: ".smylenSlideout__backdrop[data-v-49755c9c]{position:fixed;top:0;left:0;height:100%;width:100%;background:#000;opacity:.7;z-index:99990}.smylenSlideout__slideout[data-v-49755c9c]{position:fixed;right:0;left:auto;z-index:99999;background:#fff;top:0;height:100%;padding:20px}.smylenSlideout--left .smylenSlideout__slideout[data-v-49755c9c]{left:0;right:auto}.smylenSlideout__closeBtn[data-v-49755c9c]{position:absolute;top:10px;right:10px}",
     map: undefined,
     media: undefined
   });
@@ -239,7 +246,7 @@ const __vue_inject_styles__ = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__ = "data-v-a32e7860";
+const __vue_scope_id__ = "data-v-49755c9c";
 /* module identifier */
 
 const __vue_module_identifier__ = undefined;

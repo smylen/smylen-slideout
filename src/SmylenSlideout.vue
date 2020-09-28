@@ -2,7 +2,9 @@
   <div class="smylenSlideout" :class="classMap">
     <div class="smylenSlideout__backdrop" @click.prevent="onBackdropClick" v-if="showSlideout"></div>
     <div class="smylenSlideout__slideout" v-if="showSlideout">
-      <a href="#" @click.prevent="onCloseClick" class="smylenSlideout__closeBtn">Close</a>
+      <a href="#" @click.prevent="onCloseClick"
+         v-if="showClose"
+         class="smylenSlideout__closeBtn">Close</a>
 
       <div class="smylenSlideout__mainContainer">
         <slot></slot>
@@ -18,6 +20,11 @@ export default {
     showSlideout: {
       type: Boolean,
       default: false,
+      required: false,
+    },
+    showClose: {
+      type: Boolean,
+      default: true,
       required: false,
     },
     onClose: {
